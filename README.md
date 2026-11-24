@@ -1,8 +1,8 @@
 # JS2 Test – Complete Solutions
 
-**6 Questions | 100 Marks | 100 Minutes**
+**6 Questions | JavaScript Problem-Solving Guide**
 
-A comprehensive JavaScript problem-solving guide covering nested loops, searching, time complexity, Map, Set, strings, recursion, memoization, sorting, backtracking, closures, callbacks, and higher-order functions.
+A comprehensive JavaScript problem-solving guide covering **Nested Loops, Searching, Time Complexity, Map, Set, Strings, Recursion, Memoization, Sorting, Backtracking, Closures, Callbacks, and Higher-Order Functions**.
 
 ---
 
@@ -25,6 +25,7 @@ A comprehensive JavaScript problem-solving guide covering nested loops, searchin
   - [Discount Calculator](#q6a-create-discount-using-closure)
   - [Student Filtering](#q6b-filter-and-map-students)
 - [Final Complexity Cheat Sheet](#final-complexity-cheat-sheet)
+- [Important JavaScript Concepts](#important-javascript-concepts--quick-revision)
 
 ---
 
@@ -92,22 +93,22 @@ reverseTriangle(5);
 1 2 3 4 5
 ```
 
-## 5. Mermaid Flowchart
+## 5. Flowchart
 
 ```mermaid
 flowchart TD
-    A([Start]) --> B[Input n]
-    B --> C[i = n]
-    C --> D{i >= 1?}
-    D -- No --> H([End])
-    D -- Yes --> E[Initialize row = empty]
-    E --> F[j = i]
-    F --> G{j <= n?}
-    G -- Yes --> I[Append j to row]
-    I --> J[j = j + 1]
+    A([Start]) --> B[/Input n/]
+    B --> C["Initialize i = n"]
+    C --> D{"i >= 1?"}
+    D -->|No| H([End])
+    D -->|Yes| E["Initialize row = empty"]
+    E --> F["Initialize j = i"]
+    F --> G{"j <= n?"}
+    G -->|Yes| I["Append j to row"]
+    I --> J["Increment j"]
     J --> G
-    G -- No --> K[Print row]
-    K --> L[i = i - 1]
+    G -->|No| K["Print row"]
+    K --> L["Decrement i"]
     L --> D
 ```
 
@@ -197,23 +198,24 @@ target = 7;
 
 **Result:** `3`
 
-### 5. Mermaid Flowchart
+### 5. Flowchart
 
 ```mermaid
 flowchart TD
-    A([Start]) --> B[Initialize left and right]
-    B --> C{left <= right?}
-    C -- No --> D[Return -1]
-    C -- Yes --> E[Calculate mid]
-    E --> F{arr[mid] == target?}
-    F -- Yes --> G[Return mid]
-    F -- No --> H{arr[mid] < target?}
-    H -- Yes --> I[left = mid + 1]
-    H -- No --> J[right = mid - 1]
-    I --> C
-    J --> C
-    D --> K([End])
-    G --> K
+    A([Start]) --> B["Initialize left = 0"]
+    B --> C["Initialize right = array.length - 1"]
+    C --> D{"left <= right?"}
+    D -->|No| E["Return -1"]
+    D -->|Yes| F["Calculate mid"]
+    F --> G{"arr[mid] == target?"}
+    G -->|Yes| H["Return mid"]
+    G -->|No| I{"arr[mid] < target?"}
+    I -->|Yes| J["left = mid + 1"]
+    I -->|No| K["right = mid - 1"]
+    J --> D
+    K --> D
+    E --> L([End])
+    H --> L
 ```
 
 ### 6. Complexity Analysis
@@ -269,15 +271,15 @@ k >= log₂(n)
 
 Since the loop variable doubles during every iteration, the number of iterations grows logarithmically with the input size.
 
-### 4. Mermaid Flowchart
+### 4. Flowchart
 
 ```mermaid
 flowchart TD
-    A([Start]) --> B[i = 1]
-    B --> C{i < n?}
-    C -- No --> F([End])
-    C -- Yes --> D[Print i]
-    D --> E[i = i * 2]
+    A([Start]) --> B["Initialize i = 1"]
+    B --> C{"i < n?"}
+    C -->|No| F([End])
+    C -->|Yes| D["Print i"]
+    D --> E["i = i * 2"]
     E --> C
 ```
 
@@ -357,17 +359,17 @@ console.log(firstRepeatedWord(words));
 | green | No | {red, blue, green} |
 | blue | Yes | Return blue |
 
-### 6. Mermaid Flowchart
+### 6. Flowchart
 
 ```mermaid
 flowchart TD
-    A([Start]) --> B[Create empty Set]
-    B --> C[Get next word]
-    C --> D{More words?}
-    D -- No --> E[Return null]
-    D -- Yes --> F{Set contains word?}
-    F -- Yes --> G[Return word]
-    F -- No --> H[Add word to Set]
+    A([Start]) --> B["Create empty Set"]
+    B --> C["Read next word"]
+    C --> D{"More words available?"}
+    D -->|No| E["Return null"]
+    D -->|Yes| F{"Set contains current word?"}
+    F -->|Yes| G["Return current word"]
+    F -->|No| H["Add word to Set"]
     H --> C
     E --> I([End])
     G --> I
@@ -477,17 +479,17 @@ Map {
 }
 ```
 
-### 7. Mermaid Flowchart
+### 7. Flowchart
 
 ```mermaid
 flowchart TD
-    A([Start]) --> B[Create empty Map]
-    B --> C[Read next character]
-    C --> D{More characters?}
-    D -- No --> H[Return Map]
-    D -- Yes --> E{Character exists?}
-    E -- Yes --> F[Increment frequency]
-    E -- No --> G[Set frequency to 1]
+    A([Start]) --> B["Create empty Map"]
+    B --> C["Read next character"]
+    C --> D{"More characters available?"}
+    D -->|No| H["Return frequency Map"]
+    D -->|Yes| E{"Character exists in Map?"}
+    E -->|Yes| F["Increment existing frequency"]
+    E -->|No| G["Set frequency to 1"]
     F --> C
     G --> C
     H --> I([End])
@@ -501,6 +503,7 @@ flowchart TD
 | Space | O(k) |
 
 Where:
+
 - `n` = Length of the input string.
 - `k` = Number of distinct characters.
 
@@ -587,7 +590,7 @@ sumDigits(47)  = 11
 sumDigits(472) = 13
 ```
 
-### 6. Mermaid Recursion Diagram
+### 6. Recursion Diagram
 
 ```mermaid
 flowchart TD
@@ -620,7 +623,7 @@ Without a base case, recursion would continue indefinitely.
 | Time | O(log n) |
 | Space | O(log n) |
 
-**Reason:** One digit is removed during every recursive call.
+**Reason:** One digit is removed during every recursive call. The recursion depth equals the number of digits.
 
 ---
 
@@ -726,7 +729,7 @@ memo = {
 
 When `climbWays(2)` is needed again, the function retrieves the stored result rather than recalculating it.
 
-### 7. Mermaid Recursion Diagram
+### 7. Recursion Diagram
 
 ```mermaid
 flowchart TD
@@ -736,11 +739,11 @@ flowchart TD
     B --> E["climbWays(1)"]
     C --> F["climbWays(1)"]
     C --> G["climbWays(0)"]
-    D --> H["Memoized Result"]
+    D --> H["Retrieve memoized result"]
     E --> I["Return 1"]
     F --> J["Return 1"]
     G --> K["Return 1"]
-    H --> L["Avoid Recalculation"]
+    H --> L["Avoid recalculation"]
 ```
 
 ### 8. Complexity Analysis
@@ -848,22 +851,22 @@ No shifting required.
 [2, 4, 6, 7, 9]
 ```
 
-### 5. Mermaid Flowchart
+### 5. Flowchart
 
 ```mermaid
 flowchart TD
-    A([Start]) --> B[Input Array]
-    B --> C[i = 1]
-    C --> D{i < array length?}
-    D -- No --> K[Return Sorted Array]
-    D -- Yes --> E[Set key = arr[i]]
-    E --> F[j = i - 1]
+    A([Start]) --> B["Input array"]
+    B --> C["Initialize i = 1"]
+    C --> D{"i < array.length?"}
+    D -->|No| K["Return sorted array"]
+    D -->|Yes| E["key = arr[i]"]
+    E --> F["j = i - 1"]
     F --> G{"j >= 0 AND arr[j] > key?"}
-    G -- Yes --> H[Shift arr[j] to arr[j+1]]
-    H --> I[j = j - 1]
+    G -->|Yes| H["arr[j + 1] = arr[j]"]
+    H --> I["Decrement j"]
     I --> G
-    G -- No --> J[Insert key at arr[j+1]]
-    J --> L[i = i + 1]
+    G -->|No| J["arr[j + 1] = key"]
+    J --> L["Increment i"]
     L --> D
     K --> M([End])
 ```
@@ -984,26 +987,27 @@ used.delete(char);
 
 Remove the previous choice to explore another possibility.
 
-### 6. Mermaid Backtracking Diagram
+### 6. Backtracking Diagram
 
 ```mermaid
 flowchart TD
-    A([Start]) --> B[Initialize current and used]
-    B --> C[Call backtrack]
-    C --> D{current length == 2?}
-    D -- Yes --> E[Add current string to result]
-    E --> F[Return]
-    D -- No --> G[Select next character]
-    G --> H{Character already used?}
-    H -- Yes --> G
-    H -- No --> I[Choose character]
-    I --> J[Add to current and used]
-    J --> K[Recursive backtrack]
-    K --> L[Undo choice]
-    L --> M{More characters?}
-    M -- Yes --> G
-    M -- No --> F
-    F --> N([Return Result])
+    A([Start]) --> B["Initialize result, current and used"]
+    B --> C["Call backtrack()"]
+    C --> D{"current.length == 2?"}
+    D -->|Yes| E["Add current.join to result"]
+    E --> F["Return from recursion"]
+    D -->|No| G["Select next character"]
+    G --> H{"Character already used?"}
+    H -->|Yes| M{"More characters available?"}
+    H -->|No| I["Choose character"]
+    I --> J["Push character into current and used"]
+    J --> K["Call backtrack() recursively"]
+    K --> L["Undo choice using pop and delete"]
+    L --> M
+    M -->|Yes| G
+    M -->|No| F
+    F --> N["Return result"]
+    N --> O([End])
 ```
 
 ### 7. Complexity Analysis
@@ -1103,14 +1107,14 @@ In this example:
 | Captured Variable | rate |
 | Returned Function | Discount calculator |
 
-### 6. Mermaid Flowchart
+### 6. Flowchart
 
 ```mermaid
 flowchart TD
-    A([Start]) --> B["createDiscount(10)"]
+    A([Start]) --> B["Call createDiscount(10)"]
     B --> C["Store rate = 10"]
-    C --> D[Return Inner Function]
-    D --> E["tenOff(500)"]
+    C --> D["Return inner function"]
+    D --> E["Call tenOff(500)"]
     E --> F["Access captured rate = 10"]
     F --> G["discount = 500 * 10 / 100"]
     G --> H["discount = 50"]
@@ -1205,22 +1209,22 @@ Result:
 ["RIA", "TIA"]
 ```
 
-### 6. Mermaid Flowchart
+### 6. Flowchart
 
 ```mermaid
 flowchart TD
-    A([Start]) --> B[Input Students Array]
-    B --> C[Execute filter]
-    C --> D{Score >= 60?}
-    D -- Yes --> E[Keep Student]
-    D -- No --> F[Skip Student]
-    E --> G{More Students?}
+    A([Start]) --> B["Input students array"]
+    B --> C["Execute filter()"]
+    C --> D{"student.score >= 60?"}
+    D -->|Yes| E["Keep student"]
+    D -->|No| F["Skip student"]
+    E --> G{"More students?"}
     F --> G
-    G -- Yes --> D
-    G -- No --> H[Execute map]
-    H --> I[Extract Student Name]
-    I --> J[Convert Name to Uppercase]
-    J --> K[Return Result Array]
+    G -->|Yes| D
+    G -->|No| H["Execute map()"]
+    H --> I["Extract student name"]
+    I --> J["Convert name to uppercase"]
+    J --> K["Return result array"]
     K --> L([End])
 ```
 
@@ -1275,31 +1279,16 @@ flowchart TD
 
 ---
 
-# Test Preparation Strategy
+## Final Notes
 
-| Question | Marks | Suggested Time |
-|---|---:|---:|
-| Q1 | 10 | 8 min |
-| Q2 | 15 | 14 min |
-| Q3 | 15 | 14 min |
-| Q4 | 20 | 20 min |
-| Q5 | 20 | 22 min |
-| Q6 | 15 | 12 min |
-| Final Review | — | 10 min |
-| **Total** | **95** | **100 min** |
+- All JavaScript solutions are written without relying on external libraries.
+- Binary Search requires a sorted input array.
+- Set and Map provide average O(1) lookup, insertion, and deletion.
+- Recursion requires a valid base case.
+- Memoization avoids repeated calculations.
+- Insertion Sort modifies the original array.
+- Backtracking explores possible combinations using recursion.
+- Closures preserve access to their lexical environment.
+- `filter()` and `map()` return new arrays.
 
-**Note:** The marks supplied in the question paper add up to 95, although the paper states 100 marks. Confirm whether 5 marks are missing.
-
-## Final Practice Checklist
-
-- [ ] Write all solutions without referring to the README.
-- [ ] Explain the logic behind every solution.
-- [ ] Perform dry runs manually.
-- [ ] Identify base cases in recursive problems.
-- [ ] Explain time and space complexity.
-- [ ] Draw recursion and backtracking trees.
-- [ ] Understand how Set and Map work.
-- [ ] Explain closures and lexical scope.
-- [ ] Practise writing Mermaid flowcharts.
-
-**Preparation Goal:** Understand the logic, implement independently, and explain the time and space complexity of every solution.
+**Preparation Focus:** Understand the approach, write the code independently, perform a dry run, and explain time and space complexity for every question.
